@@ -1,0 +1,448 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.10 (swiftlang-5.10.0.13 clang-1500.3.9.4)
+// swift-module-flags: -target arm64-apple-ios15.6-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name DespegarWebKit
+import AdSupport
+import Combine
+import CoreLocation
+import CoreTelephony
+@_exported import DespegarWebKit
+import DeveloperToolsSupport
+import Foundation
+import LinkPresentation
+import MobileCoreServices
+import Network
+import QuickLook
+import Swift
+import SwiftUI
+import UIKit
+import WebKit
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+public typealias BaseMessageListenerHandler = ObjectiveC.NSObject & WebKit.WKScriptMessageHandler
+@objc @_inheritsConvenienceInitializers final public class DespegarCookieKitStorage : ObjectiveC.NSObject {
+  public static let shared: DespegarWebKit.DespegarCookieKitStorage
+  public static let webviewEnabledFeaturesKey: Swift.String
+  public static var featureValues: Swift.String?
+  final public func configure(shifuPaths: [Swift.String]?, notShifuPaths: [Swift.String]?, domainsToSetCookies: [Swift.String])
+  final public func updateTokenCookies(caller: Swift.String, accessToken: Swift.String)
+  final public func updateCookies(cookies: [Swift.String : Swift.String])
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc @_Concurrency.MainActor(unsafe) open class DespegarWebViewController : UIKit.UIViewController, WebKit.WKNavigationDelegate, UIKit.UIActivityItemSource {
+  @_Concurrency.MainActor(unsafe) public var url: Foundation.URL! {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) public var webView: WebKit.WKWebView! {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) public var exceptionTracker: (any DespegarWebKit.ExceptionTracker)? {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) public static var cookieButtonEnabled: Swift.Bool
+  @_Concurrency.MainActor(unsafe) public var audioDummyBtn: UIKit.UIButton?
+  @_Concurrency.MainActor(unsafe) public var isDebugEnabled: Swift.Bool
+  @_Concurrency.MainActor(unsafe) public var iconImage: UIKit.UIImage?
+  @_Concurrency.MainActor(unsafe) public var lookAndFeel: ((DespegarWebKit.DespegarWebViewController) -> Swift.Void)?
+  @_Concurrency.MainActor(unsafe) public static var customUserAgent: Swift.String?
+  @_Concurrency.MainActor(unsafe) public var customScriptJS: Swift.String? {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) public var skipGoBackRegexs: [Swift.String]? {
+    get
+  }
+  public typealias CurrentLastRegex = (currentRegex: Swift.String, lastRegex: Swift.String?)
+  @_Concurrency.MainActor(unsafe) public var resetBackListRegex: [DespegarWebKit.DespegarWebViewController.CurrentLastRegex]? {
+    get
+  }
+  public typealias KeyValue = (key: Swift.String, value: Swift.String)
+  @_Concurrency.MainActor(unsafe) public var extraCookies: [DespegarWebKit.DespegarWebViewController.KeyValue] {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) public var options: [DespegarWebKit.DespegarWebViewController.WebViewOptionKey] {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) public var metadataImg: Foundation.URL? {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) public var screenName: Swift.String? {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) public var referrer: Swift.String? {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) public var customInterceptors: [any DespegarWebKit.WebviewInterceptor]
+  @_Concurrency.MainActor(unsafe) public var customInterceptorsLowPriority: [any DespegarWebKit.WebviewInterceptor] {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) public var localInterceptors: [any DespegarWebKit.WebviewInterceptor]
+  @_Concurrency.MainActor(unsafe) public var loadingBarView: DespegarWebKit.LoadingBarView? {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) public var stringURL: Swift.String {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) public var refreshRegexs: [Swift.String]? {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) public var messageHandlers: [Swift.String : any ObjectiveC.NSObject & WebKit.WKScriptMessageHandler]
+  public enum WebViewOptionKey : Swift.Equatable {
+    case hidesBottomBarWhenPushed(Swift.Bool)
+    case allowsBackForwardGesture(Swift.Bool)
+    case navigationTitle(Swift.String?)
+    case hideNavBar
+    case hideNavBarOnlyInRoot
+    case hideBottomBar
+    case closeButton
+    public static func == (a: DespegarWebKit.DespegarWebViewController.WebViewOptionKey, b: DespegarWebKit.DespegarWebViewController.WebViewOptionKey) -> Swift.Bool
+  }
+  @_Concurrency.MainActor(unsafe) public init(url: Foundation.URL, extraCookies: [DespegarWebKit.DespegarWebViewController.KeyValue] = [], screenName: Swift.String? = nil, referrer: Swift.String? = nil, customInterceptors: [any DespegarWebKit.WebviewInterceptor] = [], customInterceptorsLowPriority: [any DespegarWebKit.WebviewInterceptor] = [], options: [DespegarWebKit.DespegarWebViewController.WebViewOptionKey] = [], customScriptJS: Swift.String? = nil, shareDelegate: (any DespegarWebKit.ShareManagerProtocol.Type)? = nil, skipGoBackRegexs: [Swift.String]?, resetBackListRegex: [DespegarWebKit.DespegarWebViewController.CurrentLastRegex]?, refreshRegexs: [Swift.String]?, javascriptCommands: [Swift.String : any DespegarWebKit.JavascriptCommand]?, cacheManager: DespegarWebKit.WebCacheManager? = nil, accessToken: Swift.String, exceptionTracker: (any DespegarWebKit.ExceptionTracker)? = nil, speechToText: (any DespegarWebKit.SpeechToText)? = nil, primaryColor: UIKit.UIColor, localString: Swift.String, uowString: Swift.String, trackingDelegate: (any DespegarWebKit.TrackingDelegate)? = nil)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+  @_Concurrency.MainActor(unsafe) public func toggleRecording()
+  @objc @_Concurrency.MainActor(unsafe) public func speechButtonPressed()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func viewDidLoad()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func viewWillAppear(_ animated: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewWillDisappear(_ animated: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) @objc public func activityViewController(_ activityViewController: UIKit.UIActivityViewController, itemForActivityType activityType: UIKit.UIActivity.ActivityType?) -> Any?
+  @_Concurrency.MainActor(unsafe) @objc public func activityViewControllerPlaceholderItem(_ activityViewController: UIKit.UIActivityViewController) -> Any
+  @_Concurrency.MainActor(unsafe) @objc public func activityViewControllerLinkMetadata(_: UIKit.UIActivityViewController) -> LinkPresentation.LPLinkMetadata?
+  @_Concurrency.MainActor(unsafe) public func screenshotTaken()
+  @objc @_Concurrency.MainActor(unsafe) public func didTapShareButton(_ sender: Any)
+  @objc @_Concurrency.MainActor(unsafe) public func didTapCloseButton(_ sender: Any)
+  @_Concurrency.MainActor(unsafe) public func load(_ url: Foundation.URL, keepOriginalURL: Swift.Bool = false)
+  @_Concurrency.MainActor(unsafe) public func reload()
+  @_Concurrency.MainActor(unsafe) public func resetNavigation(animated: Swift.Bool = true)
+  @_Concurrency.MainActor(unsafe) @objc public func webView(_ webView: WebKit.WKWebView, decidePolicyFor navigationResponse: WebKit.WKNavigationResponse, decisionHandler: @escaping (WebKit.WKNavigationResponsePolicy) -> Swift.Void)
+  @_Concurrency.MainActor(unsafe) @objc public func webView(_ webView: WebKit.WKWebView, decidePolicyFor navigationAction: WebKit.WKNavigationAction, decisionHandler: @escaping (WebKit.WKNavigationActionPolicy) -> Swift.Void)
+  @_Concurrency.MainActor(unsafe) @objc public func webView(_ webView: WebKit.WKWebView, didStartProvisionalNavigation navigation: WebKit.WKNavigation!)
+  @_Concurrency.MainActor(unsafe) @objc public func webView(_ webView: WebKit.WKWebView, didFail navigation: WebKit.WKNavigation!, withError error: any Swift.Error)
+  @_Concurrency.MainActor(unsafe) @objc public func webView(_ webView: WebKit.WKWebView, didFailProvisionalNavigation navigation: WebKit.WKNavigation!, withError error: any Swift.Error)
+  @_Concurrency.MainActor(unsafe) @objc public func webView(_ webView: WebKit.WKWebView, didCommit navigation: WebKit.WKNavigation!)
+  @_Concurrency.MainActor(unsafe) @objc public func webView(_ webView: WebKit.WKWebView, didFinish navigation: WebKit.WKNavigation!)
+  @_Concurrency.MainActor(unsafe) open func shouldAutohideTabBar() -> Swift.Bool
+  @_Concurrency.MainActor(unsafe) open func bottomConstraintValueWhenTabBarShown() -> Swift.Double
+  @_Concurrency.MainActor(unsafe) @objc public func webView(_ webView: WebKit.WKWebView, didReceiveServerRedirectForProvisionalNavigation navigation: WebKit.WKNavigation!)
+}
+extension DespegarWebKit.DespegarWebViewController : WebKit.WKUIDelegate {
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func webView(_ webView: WebKit.WKWebView, createWebViewWith configuration: WebKit.WKWebViewConfiguration, for navigationAction: WebKit.WKNavigationAction, windowFeatures: WebKit.WKWindowFeatures) -> WebKit.WKWebView?
+}
+extension DespegarWebKit.DespegarWebViewController : QuickLook.QLPreviewControllerDataSource {
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func numberOfPreviewItems(in controller: QuickLook.QLPreviewController) -> Swift.Int
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func previewController(_ controller: QuickLook.QLPreviewController, previewItemAt index: Swift.Int) -> any QuickLook.QLPreviewItem
+}
+extension DespegarWebKit.DespegarWebViewController : UIKit.UIGestureRecognizerDelegate {
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func gestureRecognizer(_ gestureRecognizer: UIKit.UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIKit.UIGestureRecognizer) -> Swift.Bool
+}
+extension UIKit.UINavigationController {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func present(_ viewControllerToPresent: UIKit.UIViewController, animated flag: Swift.Bool, completion: (() -> Swift.Void)? = nil)
+}
+extension DespegarWebKit.DespegarWebViewController {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func present(_ viewControllerToPresent: UIKit.UIViewController, animated flag: Swift.Bool, completion: (() -> Swift.Void)? = nil)
+}
+extension DespegarWebKit.DespegarWebViewController : UIKit.UIScrollViewDelegate {
+  @_Concurrency.MainActor(unsafe) @objc dynamic open func scrollViewDidScroll(_ scrollView: UIKit.UIScrollView)
+  @_Concurrency.MainActor(unsafe) @objc dynamic open func scrollViewDidEndDragging(_ scrollView: UIKit.UIScrollView, willDecelerate decelerate: Swift.Bool)
+}
+public enum DespegarWebKitFeatures {
+  case closeButtonEnabled
+  public static func == (a: DespegarWebKit.DespegarWebKitFeatures, b: DespegarWebKit.DespegarWebKitFeatures) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public enum DespegarWebKitLanguages : Swift.String {
+  case ES
+  case PT
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum DespegarWebKitCountry : Swift.String {
+  case AR
+  case BR
+  case BO
+  case CL
+  case CO
+  case CR
+  case EC
+  case SV
+  case US
+  case GT
+  case HN
+  case MX
+  case NI
+  case PA
+  case PY
+  case PE
+  case PR
+  case UY
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+@_hasMissingDesignatedInitializers final public class DespegarWebviewKit {
+  public static var interceptors: [any DespegarWebKit.Interceptor]?
+  public static func createDespegarWebviewController(configuration: DespegarWebKit.DespegarWebviewKitConfiguration) -> UIKit.UIViewController
+  public static func createDespegarWebviewNavigation(configuration: DespegarWebKit.DespegarWebviewKitConfiguration) -> UIKit.UINavigationController
+  final public func setLoginToken(accessToken: Swift.String)
+  final public func logout()
+  final public func updateCookies(cookies: [Swift.String : Swift.String])
+  @objc deinit
+}
+final public class DespegarWebviewKitConfiguration {
+  final public var url: Foundation.URL {
+    get
+  }
+  final public var extraDomains: [Swift.String]? {
+    get
+  }
+  final public var cookies: [Swift.String : Swift.String]?
+  final public var language: DespegarWebKit.DespegarWebKitLanguages?
+  final public var accessToken: Swift.String
+  final public var country: DespegarWebKit.DespegarWebKitCountry?
+  final public var mainColor: Swift.String?
+  final public var features: [DespegarWebKit.DespegarWebKitFeatures]?
+  final public var messageHandlers: [Swift.String : any DespegarWebKit.JavascriptCommand]?
+  final public var exceptionTracker: (any DespegarWebKit.ExceptionTracker)?
+  public init(url: Foundation.URL, extraDomains: [Swift.String]? = nil)
+  @objc deinit
+}
+public class DespegarWebviewTelephoneInterceptor : DespegarWebKit.WebviewInterceptor {
+  public init()
+  public func handle(viewController: DespegarWebKit.DespegarWebViewController, webView: inout WebKit.WKWebView, request: Foundation.URLRequest, decidePolicyFor navigationAction: WebKit.WKNavigationAction, baseURL: Foundation.URL) -> WebKit.WKNavigationActionPolicy
+  @objc deinit
+}
+public class DespegarWebviewWhatsappInterceptor : DespegarWebKit.WebviewInterceptor {
+  public init()
+  public func handle(viewController: DespegarWebKit.DespegarWebViewController, webView: inout WebKit.WKWebView, request: Foundation.URLRequest, decidePolicyFor navigationAction: WebKit.WKNavigationAction, baseURL: Foundation.URL) -> WebKit.WKNavigationActionPolicy
+  @objc deinit
+}
+extension DespegarWebKit.ExceptionTracker {
+  public func trackWebviewError(_ error: any Swift.Error, caller: Swift.String?, message: Swift.String?, attributes: [Swift.AnyHashable : Any]?)
+}
+public protocol JavascriptCommand {
+  func process(event: Swift.String, detail: [Swift.String : Any]?, webVC: DespegarWebKit.DespegarWebViewController)
+  func sendJSResponse(event: Swift.String, detail: Swift.String, webVC: DespegarWebKit.DespegarWebViewController?)
+}
+extension DespegarWebKit.JavascriptCommand {
+  public func sendJSResponse(event: Swift.String, detail: Swift.String, webVC: DespegarWebKit.DespegarWebViewController? = nil)
+}
+@objc @_Concurrency.MainActor(unsafe) public class LoadingBarView : UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) @objc dynamic public init()
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) public func setUp()
+  @_Concurrency.MainActor(unsafe) public func show()
+  @_Concurrency.MainActor(unsafe) public func hide()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func layoutSubviews()
+  @objc deinit
+}
+public struct ModalJavascriptCommand : DespegarWebKit.JavascriptCommand {
+  public let exceptionTracker: (any DespegarWebKit.ExceptionTracker)?
+  public func process(event: Swift.String, detail: [Swift.String : Any]?, webVC: DespegarWebKit.DespegarWebViewController)
+  public init(exceptionTracker: (any DespegarWebKit.ExceptionTracker)?)
+}
+public protocol Interceptor {
+  var regexPath: Foundation.NSRegularExpression { get set }
+  func matchFound(url: Foundation.URL)
+}
+public protocol NavigationResetPoint {
+}
+extension Swift.String {
+  public func replace(expression: Swift.String? = nil, with newString: Swift.String? = nil, exceptionTracker: (any DespegarWebKit.ExceptionTracker)?) -> Swift.String
+}
+@objc @_inheritsConvenienceInitializers public class Tools : ObjectiveC.NSObject {
+  public enum LocalizableError : Swift.Error {
+    case webKitMessageError
+    case keyNotFound(key: Swift.String)
+    case cannotHandleUrl
+    case cannotCreateDeeplink
+    case shareURLNotFound
+    case webviewTrackingDetailNotFound
+    case imageNotFound
+  }
+  public static func localizedStringFromLocalizable(for key: Swift.String) -> Swift.String
+  @objc override dynamic public init()
+  @objc deinit
+}
+extension Foundation.NSRegularExpression {
+  public func matches(_ string: Swift.String) -> Swift.Bool
+}
+extension UIKit.UIImage {
+  public static func fromWebviewKit(named name: Swift.String, exceptionTracker: (any DespegarWebKit.ExceptionTracker)?) -> UIKit.UIImage?
+  public static func fromWebviewKit(named name: Swift.String, compatibleWith traitCollection: UIKit.UITraitCollection?, exceptionTracker: (any DespegarWebKit.ExceptionTracker)?) -> UIKit.UIImage?
+}
+extension UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) public func bindFrameToSuperviewBounds()
+  @_Concurrency.MainActor(unsafe) public func bindFrameHorizontalToSuperviewBounds()
+  @_Concurrency.MainActor(unsafe) public func bindFrameHorizontalToSuperviewBounds(_ right: CoreFoundation.CGFloat)
+  @_Concurrency.MainActor(unsafe) public func bindFrameHorizontalToSuperviewBounds(left: CoreFoundation.CGFloat)
+  @_Concurrency.MainActor(unsafe) public func bindFrameHorizontalToSuperviewBounds(_ left: CoreFoundation.CGFloat, right: CoreFoundation.CGFloat)
+  @_Concurrency.MainActor(unsafe) public func bindFrameVerticalToSuperviewBounds()
+  @_Concurrency.MainActor(unsafe) public func bindFrameVerticalToSuperviewBounds(_ down: CoreFoundation.CGFloat)
+  @_Concurrency.MainActor(unsafe) public func bindFrameVerticalToSuperviewBounds(up: CoreFoundation.CGFloat)
+  @_Concurrency.MainActor(unsafe) public func bindFrameVerticalToSuperviewBounds(_ up: CoreFoundation.CGFloat, down: CoreFoundation.CGFloat)
+  @_Concurrency.MainActor(unsafe) public func centerVerticalToSuperviewBounds()
+  @_Concurrency.MainActor(unsafe) public func centerHorizontalToSuperviewBounds()
+  @_Concurrency.MainActor(unsafe) public func bindFrameToSuperviewRightBounds()
+  @_Concurrency.MainActor(unsafe) public func bindFrameToSuperviewLeftBounds()
+  @_Concurrency.MainActor(unsafe) public func bindFrameToSuperviewTopMargin()
+  @_Concurrency.MainActor(unsafe) public func bindFrameToSuperviewBottomMargin()
+  @_Concurrency.MainActor(unsafe) public func constrainTo(height: CoreFoundation.CGFloat)
+  @_Concurrency.MainActor(unsafe) public func constrainTo(width: CoreFoundation.CGFloat)
+  @_Concurrency.MainActor(unsafe) public class func fromNib() -> Self
+}
+public protocol XibInstantiable {
+}
+extension DespegarWebKit.XibInstantiable where Self : UIKit.UIView {
+  public static func loadFromNib() -> Self?
+}
+@_hasMissingDesignatedInitializers final public class UPAIdGenerator {
+  public struct CommonValues {
+    public static let client: Swift.String
+  }
+  public static let shared: DespegarWebKit.UPAIdGenerator
+  final public let identifier: Swift.String
+  final public var pageViewId: Swift.String?
+  final public func newPageViewID()
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers final public class NetworkConnection : Foundation.ObservableObject {
+  public static let shared: DespegarWebKit.NetworkConnection
+  @Combine.Published @_projectedValueProperty($isOnline) final public var isOnline: Swift.Bool {
+    get
+  }
+  final public var $isOnline: Combine.Published<Swift.Bool>.Publisher {
+    get
+  }
+  @Combine.Published @_projectedValueProperty($isWiFi) final public var isWiFi: Swift.Bool {
+    get
+  }
+  final public var $isWiFi: Combine.Published<Swift.Bool>.Publisher {
+    get
+  }
+  public typealias ObjectWillChangePublisher = Combine.ObservableObjectPublisher
+  @objc deinit
+}
+public protocol ExceptionTracker {
+  func trackBreadcrumb(_ name: Swift.String, attributes: [Swift.AnyHashable : Any]?)
+  func trackException(_ exception: Foundation.NSException, caller: Swift.String?, message: Swift.String?, attributes: [Swift.AnyHashable : Any]?)
+  func trackError(_ error: any Swift.Error, caller: Swift.String?, message: Swift.String?, attributes: [Swift.AnyHashable : Any]?)
+}
+public protocol SpeechToTextDelegate {
+  func speechRecognitionDidFinish(with text: Swift.String?)
+  func speechRecognitionDidFail(withError error: any Swift.Error)
+  func speechRecognitionPermissionDenied()
+}
+public protocol SpeechToText : AnyObject {
+  func toggleRecording(languageCode: Swift.String?)
+  func stopRecording()
+  var delegate: (any DespegarWebKit.SpeechToTextDelegate)? { get set }
+}
+public enum ShareUrlSource : Swift.String {
+  case button
+  case screenshot
+  case webViewTrigger
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public protocol ShareManagerProtocol {
+  static var shareRegexs: [Swift.String]? { get set }
+  static var shortUrl: Swift.String? { get set }
+  static func shareUrl(source: DespegarWebKit.ShareUrlSource, viewController: UIKit.UIViewController, exceptionTracker: (any DespegarWebKit.ExceptionTracker)?)
+  static func shareRegexCheckForURL(_ urlActive: Foundation.URL?, viewController: UIKit.UIViewController)
+}
+extension UIKit.UIColor {
+  convenience public init?(hex: Swift.String)
+}
+public enum AppTimeTrackerCheckpoint : Swift.String, Swift.CaseIterable {
+  case appStart
+  case splash
+  case homeInit
+  case webViewInit
+  case webViewFirstLoad
+  public init?(rawValue: Swift.String)
+  public typealias AllCases = [DespegarWebKit.AppTimeTrackerCheckpoint]
+  public typealias RawValue = Swift.String
+  public static var allCases: [DespegarWebKit.AppTimeTrackerCheckpoint] {
+    get
+  }
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public protocol TrackingDelegate : AnyObject {
+  func didHitCache(url: Foundation.URL, foundData: Swift.Bool)
+  func didAttemptToGoBack(webview: WebKit.WKWebView)
+  func didStart(checkPoint: DespegarWebKit.AppTimeTrackerCheckpoint)
+  func didStop(checkPoint: DespegarWebKit.AppTimeTrackerCheckpoint)
+}
+public struct WebPreCacheConfigModel : Swift.Decodable {
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct WebCacheConfigModel : Swift.Decodable {
+  public init(from decoder: any Swift.Decoder) throws
+}
+@objc public class WebCacheManager : ObjectiveC.NSObject {
+  public init(domainPrefix: Swift.String, preCacheConfigs: [DespegarWebKit.WebPreCacheConfigModel]?, cacheConfigs: [DespegarWebKit.WebCacheConfigModel]?)
+  @objc deinit
+}
+extension DespegarWebKit.WebCacheManager : WebKit.WKNavigationDelegate {
+  @objc dynamic public func webView(_ webView: WebKit.WKWebView, didFinish navigation: WebKit.WKNavigation!)
+}
+@_hasMissingDesignatedInitializers public class WebkitConfiguration {
+  public static var localString: Swift.String?
+  public static var primaryColor: UIKit.UIColor
+  public static var uowString: Swift.String?
+  public static var clientInfo: Swift.String? {
+    get
+  }
+  public class func userAgent() -> Swift.String
+  @objc deinit
+}
+public typealias WebViewKitCookie = (key: Swift.String, value: Swift.String, expiration: Foundation.TimeInterval?)
+public protocol WebViewCookiesProvider {
+  var cookies: [DespegarWebKit.WebViewKitCookie] { get }
+  var defaultExpiration: Foundation.TimeInterval { get }
+  var domain: Swift.String { get }
+}
+public enum WebViewError : Foundation.LocalizedError {
+  case loading
+  case didFailProvisioningNavigation
+  case didFailNavigation
+  case couldNotSetCookies
+  case shareButtonRegexNotMatch
+  case missingHost(Swift.String)
+  case invalidURL
+  case internalURL
+  case invalidPurchaseFacebookParameter
+  public var errorDescription: Swift.String? {
+    get
+  }
+}
+public protocol WebviewInterceptor {
+  func handle(viewController: DespegarWebKit.DespegarWebViewController, webView: inout WebKit.WKWebView, request: Foundation.URLRequest, decidePolicyFor navigationAction: WebKit.WKNavigationAction, baseURL: Foundation.URL) -> WebKit.WKNavigationActionPolicy
+}
+extension DespegarWebKit.DespegarWebKitFeatures : Swift.Equatable {}
+extension DespegarWebKit.DespegarWebKitFeatures : Swift.Hashable {}
+extension DespegarWebKit.DespegarWebKitLanguages : Swift.Equatable {}
+extension DespegarWebKit.DespegarWebKitLanguages : Swift.Hashable {}
+extension DespegarWebKit.DespegarWebKitLanguages : Swift.RawRepresentable {}
+extension DespegarWebKit.DespegarWebKitCountry : Swift.Equatable {}
+extension DespegarWebKit.DespegarWebKitCountry : Swift.Hashable {}
+extension DespegarWebKit.DespegarWebKitCountry : Swift.RawRepresentable {}
+extension DespegarWebKit.ShareUrlSource : Swift.Equatable {}
+extension DespegarWebKit.ShareUrlSource : Swift.Hashable {}
+extension DespegarWebKit.ShareUrlSource : Swift.RawRepresentable {}
+extension DespegarWebKit.AppTimeTrackerCheckpoint : Swift.Equatable {}
+extension DespegarWebKit.AppTimeTrackerCheckpoint : Swift.Hashable {}
+extension DespegarWebKit.AppTimeTrackerCheckpoint : Swift.RawRepresentable {}

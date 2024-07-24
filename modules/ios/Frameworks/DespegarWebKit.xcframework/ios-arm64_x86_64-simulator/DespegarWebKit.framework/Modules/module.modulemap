@@ -1,0 +1,11 @@
+framework module DespegarWebKit {
+  umbrella header "DespegarWebKit-umbrella.h"
+
+  export *
+  module * { export * }
+}
+
+module DespegarWebKit.Swift {
+  header "DespegarWebKit-Swift.h"
+  requires objc
+}

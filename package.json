@@ -3,15 +3,17 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "android": "react-native run-android",
+    "android": "react-native run-android --port=8090",
     "ios": "react-native run-ios",
     "lint": "eslint .",
-    "start": "react-native start",
-    "test": "jest"
+    "start": "react-native start --port 8089",
+    "test": "jest",
+    "start:ios": "npm run ios -- --port=8090 --simulator='iPhone 15 Pro Max (311CBD4B-F8F2-45F8-86F7-16BF041A643F)'"
   },
   "dependencies": {
     "react": "18.2.0",
-    "react-native": "0.74.3"
+    "react-native": "0.74.3",
+    "despegar-test": "file:./modules"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",

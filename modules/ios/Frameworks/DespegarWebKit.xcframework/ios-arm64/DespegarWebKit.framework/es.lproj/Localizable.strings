@@ -1,0 +1,9 @@
+"ErrorMessages.default" = "No se pudo efectuar la consulta. Por favor, intente nuevamente más tarde.";
+"webview.enableCookies" = "Por favor, habilite las cookies para poder utilizar esta funcionalidad.";
+"Web.Contingency.Banner.With.Content.Title" = "No se pudo efectuar la consulta porque parece que no tienes acceso a internet. Por favor, comprueba tu conexión.";
+"Web.Contingency.Banner.Button" = "Reintentar";
+"Web.Contingency.Banner.No.Content.Title" = "No se pudo efectuar la consulta. Comprueba tu conexión a internet y vuelve a intentarlo.";
+
+"Webview.Actionsheet.Subtitle.despegar" = "¡Qué ganas de viajar! Mira lo que encontré en Despegar:";
+"Webview.Actionsheet.Subtitle.bestDay" = "¡Qué ganas de viajar! Mira lo que encontré en BestDay:";
+"Webview.Actionsheet.Subtitle.falabella" = "¡Qué ganas de viajar! Mira lo que encontré en Viajes Falabella:";

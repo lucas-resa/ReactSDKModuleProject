@@ -1,0 +1,8 @@
+"ErrorMessages.default" = "Não foi possível realizar a pesquisa. Por favor, tente novamente mais tarde.";
+"webview.enableCookies" = "Ative os cookies para utilizar esta funcionalidade.";
+"Web.Contingency.Banner.With.Content.Title" = "Não foi possível efetuar a consulta, porque parece que você não tem acesso à internet. Por favor, verifique sua conexão.";
+"Web.Contingency.Banner.Button" = "Tentar novamente";
+"Web.Contingency.Banner.No.Content.Title" = "Não foi possível efetuar a consulta. Verifique sua conexão à internet e tente novamente. ";
+
+"Webview.Actionsheet.Subtitle.decolar" = "Que vontade de viajar! Olha o que encontrei na Decolar:";
+"Webview.Actionsheet.Subtitle.viajanet" = "Que vontade de viajar! Olha o que encontrei no ViajaNet:";
