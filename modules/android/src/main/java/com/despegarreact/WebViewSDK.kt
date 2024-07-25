@@ -1,4 +1,4 @@
-package com.despegartest
+package com.despegarreact
 
 import android.content.Intent
 import android.net.Uri

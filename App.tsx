@@ -1,4 +1,4 @@
-import { testMethod } from 'despegar-test';
+import { showWebView } from 'despegar-react';
 import React from 'react';
 import {
   SafeAreaView,
@@ -9,19 +9,12 @@ import {
 } from 'react-native';
 
 function App(): React.JSX.Element {
-
-  // var testFunction = () => {
-  // multiply(12, 5).then (
-  //   value => console.log('El resultado es: ' + value)
-  // )
-  // }
-
   return (
     <SafeAreaView>
       <View>
         <Text style={styles.title}>Test App</Text>
         <Button title='Codigo nativo' 
-        onPress={ () => testMethod('https://www.despegar.com.ar/')}>
+        onPress={ () => showWebView('https://www.despegar.com.ar/')}>
         </Button>
       </View>
     </SafeAreaView>

@@ -1,6 +1,6 @@
 {
-  "name": "despegar-test",
-  "version": "0.0.0",
+  "name": "despegar-react",
+  "version": "1.0.0",
   "description": "despegar webview test",
   "main": "src/index",
   "author": " <> ()",

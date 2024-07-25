@@ -1,4 +1,4 @@
-package com.despegartest
+package com.despegarreact
 
 import android.view.View
 import com.facebook.react.ReactPackage
